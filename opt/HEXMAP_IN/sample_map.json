@@ -1,41 +1,7 @@
-* TRPGなどに便利な六角タイルのマップ画像をJSONで定義して描画するツール
-* `./HEXMAP_IN/` 配下のJSONファイルを読み込む
-* `./HEXMAP_OUT/` 配下にJPEG形式で出力
-
-フォントファイル([CascadiaPL.ttf](https://github.com/microsoft/cascadia-code))をリポジトリに含む
-
-# セットアップ
-
-```
-docker-compose up -d --build
-```
-
-# 使い方
-
-
-## すべてのJSONを読み込んで描画
-
-```
-python hexmap.py
-```
-
-## 特定のJSONファイルだけ読み込んで描画
-
-```
-python hexmap.py ./HEXMAP_IN/use_this_file_only.json
-```
-
-# サンプル
-
-![](./opt/sample_map_20230116_175831.jpg)
-
-* `hex` キーの配列で後に定義したタイル・ラベルほど優先して描画します
-
-```json
 {
   "hex": [
     {
-      "_":         "wall. ... this key is ignored.",
+      "_":         "wall ... this key will be ignored.",
       "h1":        0,
       "h2":        6,
       "v1":        0,
@@ -64,7 +30,7 @@ python hexmap.py ./HEXMAP_IN/use_this_file_only.json
       "decorates": [
         "*"
       ],
-      "label":     "water"
+      "label":     "Water"
     },
     {
       "h1":        3,
@@ -75,7 +41,7 @@ python hexmap.py ./HEXMAP_IN/use_this_file_only.json
       "decorates": [
         "*"
       ],
-      "label":     "water"
+      "label":     "Water"
     },
     {
       "h1":        3,
@@ -84,7 +50,7 @@ python hexmap.py ./HEXMAP_IN/use_this_file_only.json
       "v2":        2,
       "color":     "888844",
       "decorates": [],
-      "label":     "bridge"
+      "label":     "Bridge"
     },
     {
       "h1":        0,
@@ -93,7 +59,7 @@ python hexmap.py ./HEXMAP_IN/use_this_file_only.json
       "v2":        2,
       "color":     "orange",
       "decorates": [],
-      "label":     "door"
+      "label":     "Door"
     },
     {
       "h1":        5,
@@ -104,14 +70,7 @@ python hexmap.py ./HEXMAP_IN/use_this_file_only.json
       "decorates": [
         "||"
       ],
-      "label":     "start"
+      "label":     "Start"
     }
   ]
 }
-```
-
-
-
-# 参考サイト
-
-[Hexagonal Grids](https://www.redblobgames.com/grids/hexagons/)
